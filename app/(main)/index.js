@@ -1,20 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, Dimensions, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, Polyline } from 'react-native-maps';
 import * as Location from 'expo-location';
+import * as FileSystem from 'expo-file-system';
+import caminos from '../../assets/geo/caminos.json';
+
 import MapHeader from '../../src/presentation/components/MapHeader';
 import SearchBar from '../../src/presentation/components/SearchBar';
 import BuildingInfoPanel from '../../src/presentation/components/BuildingInfoPanel';
 import EventsCarousel from '../../src/presentation/components/EventsCarousel';
 import { serviceContainer } from '../../src/infrastructure/di/ServiceContainer';
 import { COLORS } from '../../src/core/constants/colors';
-import { DIMENSIONS } from '../../src/core/constants/dimensions';
 
 const { width, height } = Dimensions.get('window');
-const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.01;
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+const LONGITUDE_DELTA = LATITUDE_DELTA * (width / height);
 
 export default function MapScreen() {
   const [buildings, setBuildings] = useState([]);
@@ -23,13 +24,9 @@ export default function MapScreen() {
   const [userLocation, setUserLocation] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredBuildings, setFilteredBuildings] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [mapRegion, setMapRegion] = useState({
-    latitude: 19.4326,
-    longitude: -99.1332,
-    latitudeDelta: LATITUDE_DELTA,
-    longitudeDelta: LONGITUDE_DELTA,
-  });
+  const [geojsonLines, setGeojsonLines] = useState([]);
+  const [mapRegion, setMapRegion] = useState(null);
+
 
   const buildingUseCases = serviceContainer.get('buildingUseCases');
   const eventUseCases = serviceContainer.get('eventUseCases');
@@ -43,6 +40,30 @@ export default function MapScreen() {
     filterBuildings();
   }, [searchQuery, buildings]);
 
+  useEffect(() => {
+    // Procesar caminos y convertir a coordenadas válidas para <Polyline>
+    const lines = caminos.features
+      .filter(f => f.geometry.type === 'LineString')
+      .map(f => ({
+        id: f.properties?.id || Math.random().toString(),
+        coordinates: f.geometry.coordinates.map(coord => ({
+          latitude: coord[1],
+          longitude: coord[0],
+        })),
+      }));
+
+    setGeojsonLines(lines);
+
+    // Centrar el mapa en el primer camino si existe
+    if (lines.length > 0) {
+      const centro = calculateCenter(lines[0].coordinates);
+      setMapRegion({
+        ...centro,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      });
+    }
+  }, []);
   const loadInitialData = async () => {
     try {
       const [buildingsData, eventsData] = await Promise.all([
@@ -53,23 +74,17 @@ export default function MapScreen() {
       setEvents(eventsData);
     } catch (error) {
       Alert.alert('Error', 'No se pudieron cargar los datos');
-    } finally {
-      setIsLoading(false);
     }
   };
 
   const requestLocationPermission = async () => {
-    try {
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status === 'granted') {
-        const location = await Location.getCurrentPositionAsync({});
-        setUserLocation({
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
-        });
-      }
-    } catch (error) {
-      console.log('Error getting location:', error);
+    const { status } = await Location.requestForegroundPermissionsAsync();
+    if (status === 'granted') {
+      const location = await Location.getCurrentPositionAsync({});
+      setUserLocation({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      });
     }
   };
 
@@ -80,40 +95,28 @@ export default function MapScreen() {
     }
 
     const filtered = buildings.filter(building =>
-      building.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      building.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      building.type.toLowerCase().includes(searchQuery.toLowerCase())
+      building.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredBuildings(filtered);
   };
 
-  const handleMarkerPress = (building) => {
-    setSelectedBuilding(building);
-  };
-
-  const handleSearch = (query, filters) => {
+  const handleSearch = (query) => {
     setSearchQuery(query);
-    // TODO: Implementar filtros adicionales
   };
 
-  const closeInfoPanel = () => {
-    setSelectedBuilding(null);
+  const calculateCenter = (coordenates) => {
+    const lats = coordenates.map(c => c.latitude);
+    const lngs = coordenates.map(c => c.longitude);
+    const lat = (Math.min(...lats) + Math.max(...lats)) / 2;
+    const lng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
+    return { latitude: lat, longitude: lng };
   };
 
-  if (isLoading) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.loadingContainer}>
-          <Text>Cargando mapa...</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
 
   return (
     <SafeAreaView style={styles.container}>
       <MapHeader />
-      
+
       <View style={styles.mapContainer}>
         <MapView
           style={styles.map}
@@ -128,18 +131,27 @@ export default function MapScreen() {
               coordinate={building.coordinates}
               title={building.name}
               description={building.description}
-              onPress={() => handleMarkerPress(building)}
               pinColor={building.hasRamp ? COLORS.success : COLORS.primary}
+              onPress={() => setSelectedBuilding(building)}
+            />
+          ))}
+
+          {geojsonLines.map((line) => (
+            <Polyline
+              key={line.id}
+              coordinates={line.coordinates}
+              strokeColor={COLORS.primary}
+              strokeWidth={4}
             />
           ))}
         </MapView>
 
         <SearchBar onSearch={handleSearch} />
-        
+
         {selectedBuilding && (
           <BuildingInfoPanel
             building={selectedBuilding}
-            onClose={closeInfoPanel}
+            onClose={() => setSelectedBuilding(null)}
           />
         )}
       </View>
