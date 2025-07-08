@@ -3,8 +3,8 @@ import { View, StyleSheet, Text, Dimensions, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import * as Location from 'expo-location';
-import * as FileSystem from 'expo-file-system';
 import caminos from '../../assets/geo/caminos.json';
+import { buildGraph, findRoute } from '../../src/core/utils/graphUtils';
 
 import MapHeader from '../../src/presentation/components/MapHeader';
 import SearchBar from '../../src/presentation/components/SearchBar';
@@ -26,22 +26,41 @@ export default function MapScreen() {
   const [filteredBuildings, setFilteredBuildings] = useState([]);
   const [geojsonLines, setGeojsonLines] = useState([]);
   const [mapRegion, setMapRegion] = useState(null);
+  const [routePath, setRoutePath] = useState([]);
+  const [graph, setGraph] = useState({});
+  const [nodeCoords, setNodeCoords] = useState({});
 
-
-  const buildingUseCases = serviceContainer.get('buildingUseCases');
   const eventUseCases = serviceContainer.get('eventUseCases');
 
   useEffect(() => {
     loadInitialData();
     requestLocationPermission();
+    processGeoJSON();
   }, []);
 
   useEffect(() => {
     filterBuildings();
   }, [searchQuery, buildings]);
 
-  useEffect(() => {
-    // Procesar caminos y convertir a coordenadas válidas para <Polyline>
+  const processGeoJSON = () => {
+    const { graph, nodeCoords } = buildGraph(caminos.features);
+    setGraph(graph);
+    setNodeCoords(nodeCoords);
+
+    const geoBuildings = caminos.features.filter(f => f.properties.tipo === 'EDIFICIO').map(f => {
+      const center = calculateCenterFromPolygon(f.geometry.coordinates[0]);
+      return {
+        id: f.properties.id,
+        name: f.properties.name,
+        description: 'Edificio del campus',
+        coordinates: center,
+        entradaId: f.properties.conexiones?.[0],
+        hasRamp: true,
+        isAccessible: true,
+      };
+    });
+    setBuildings(geoBuildings);
+
     const lines = caminos.features
       .filter(f => f.geometry.type === 'LineString')
       .map(f => ({
@@ -54,7 +73,6 @@ export default function MapScreen() {
 
     setGeojsonLines(lines);
 
-    // Centrar el mapa en el primer camino si existe
     if (lines.length > 0) {
       const centro = calculateCenter(lines[0].coordinates);
       setMapRegion({
@@ -63,14 +81,11 @@ export default function MapScreen() {
         longitudeDelta: LONGITUDE_DELTA,
       });
     }
-  }, []);
+  };
+
   const loadInitialData = async () => {
     try {
-      const [buildingsData, eventsData] = await Promise.all([
-        buildingUseCases.getAllBuildings(),
-        eventUseCases.getActiveEvents(),
-      ]);
-      setBuildings(buildingsData);
+      const eventsData = await eventUseCases.getActiveEvents();
       setEvents(eventsData);
     } catch (error) {
       Alert.alert('Error', 'No se pudieron cargar los datos');
@@ -100,18 +115,63 @@ export default function MapScreen() {
     setFilteredBuildings(filtered);
   };
 
-  const handleSearch = (query) => {
+  const calculateCenter = (coordinates) => {
+    const lats = coordinates.map(c => c.latitude);
+    const lngs = coordinates.map(c => c.longitude);
+    return {
+      latitude: (Math.min(...lats) + Math.max(...lats)) / 2,
+      longitude: (Math.min(...lngs) + Math.max(...lngs)) / 2,
+    };
+  };
+
+  const calculateCenterFromPolygon = (polygonCoords) => {
+    const lats = polygonCoords.map(c => c[1]);
+    const lngs = polygonCoords.map(c => c[0]);
+    return {
+      latitude: (Math.min(...lats) + Math.max(...lats)) / 2,
+      longitude: (Math.min(...lngs) + Math.max(...lngs)) / 2,
+    };
+  };
+
+  const handleSearch = (query, filters) => {
     setSearchQuery(query);
-  };
 
-  const calculateCenter = (coordenates) => {
-    const lats = coordenates.map(c => c.latitude);
-    const lngs = coordenates.map(c => c.longitude);
-    const lat = (Math.min(...lats) + Math.max(...lats)) / 2;
-    const lng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
-    return { latitude: lat, longitude: lng };
-  };
+    const target = buildings.find(b =>
+      b.name.toLowerCase().includes(query.toLowerCase())
+    );
 
+    if (!target) {
+      console.warn('🏠 Edificio no encontrado');
+      return;
+    }
+
+    const entradaId = target.entradaId;
+    if (!entradaId) {
+      console.warn('❌ Edificio encontrado, pero sin entrada asignada');
+      return;
+    }
+
+    const entrada = caminos.features.find(
+      f => f.properties.id === entradaId && f.properties.tipo === 'ENTRADA_EDIFICIO'
+    );
+
+    if (!entrada) {
+      console.warn(`🚪 Entrada no encontrada para edificio ${entradaId}`);
+      return;
+    }
+
+    const destinoId = entrada.properties.id;
+    const path = findRoute(graph, 'EP-003', destinoId);
+
+    if (path) {
+      const coords = path.map(id => nodeCoords[id]).filter(Boolean);
+      setRoutePath(coords);
+    } else {
+      console.warn('⚠️ No se encontró ruta hacia', destinoId);
+    }
+
+    filterBuildings();
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -144,6 +204,14 @@ export default function MapScreen() {
               strokeWidth={4}
             />
           ))}
+          {routePath.length > 1 && (
+            <Polyline
+              coordinates={routePath}
+              strokeColor={COLORS.success}
+              strokeWidth={5}
+              lineDashPattern={[10, 5]}
+            />
+          )}
         </MapView>
 
         <SearchBar onSearch={handleSearch} />
