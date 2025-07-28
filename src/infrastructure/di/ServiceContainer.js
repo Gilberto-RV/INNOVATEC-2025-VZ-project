@@ -1,6 +1,9 @@
+// infrastructure/di/ServiceContainer.js
+
 import { MockAuthRepository } from '../repositories/MockAuthRepository';
-import { MockBuildingRepository } from '../repositories/MockBuildingRepository';
 import { MockEventRepository } from '../repositories/MockEventRepository';
+import { HttpBuildingRepository } from '../repositories/HttpBuildingRepository';
+
 import { AuthUseCases } from '../../core/usecases/AuthUseCases';
 import { BuildingUseCases } from '../../core/usecases/BuildingUseCases';
 import { EventUseCases } from '../../core/usecases/EventUseCases';
@@ -14,7 +17,7 @@ class ServiceContainer {
   _setupServices() {
     // Repositories
     this._services.set('authRepository', new MockAuthRepository());
-    this._services.set('buildingRepository', new MockBuildingRepository());
+    this._services.set('buildingRepository', new HttpBuildingRepository()); // CAMBIO AQUÍ
     this._services.set('eventRepository', new MockEventRepository());
 
     // Use Cases

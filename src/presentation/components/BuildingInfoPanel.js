@@ -1,171 +1,179 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { X, MapPin, Accessibility, Layers } from 'lucide-react-native';
+import React from 'react';
+import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { X } from 'lucide-react-native';
 import { COLORS } from '../../core/constants/colors';
 import { DIMENSIONS } from '../../core/constants/dimensions';
 
-export default function BuildingInfoPanel({ building, onClose }) {
+export default function BuildingInfoPanel ({ building, onClose }) {
+  if (!building) return null;
+
+  const {
+    name,
+    description,
+    accessibility,
+    floors,
+    availability,
+    student_frequency,
+    bathrooms = {},
+    services = [],
+    careers = [],
+    entrances = [],
+    subject = [],
+  } = building;
+
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>{building.name}</Text>
+        <Text style={styles.title}>{name}</Text>
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <X size={24} color={COLORS.gray[600]} />
         </TouchableOpacity>
       </View>
+      <ScrollView style={styles.scrollView} contentContainerStyle={{ paddingBottom: 16 }}>
+        {description ? <Text style={styles.description}>{description}</Text> : null}
 
-      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
-        {building.image && (
-          <Image source={{ uri: building.image }} style={styles.image} />
+        <View style={styles.section}>
+          <Text style={styles.label}>Accesibilidad:</Text>
+          <Text style={styles.text}>{accessibility || 'No especificado'}</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.label}>Pisos:</Text>
+          <Text style={styles.text}>{floors ?? 'Desconocido'}</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.label}>Disponibilidad:</Text>
+          <Text style={styles.text}>{availability || 'No disponible'}</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.label}>Frecuencia de estudiantes:</Text>
+          <Text style={styles.text}>{student_frequency || 'No especificada'}</Text>
+        </View>
+
+        {Object.keys(bathrooms).length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.label}>Baños:</Text>
+            <Text style={styles.text}>Hombres: {bathrooms.men ?? 0}</Text>
+            <Text style={styles.text}>Mujeres: {bathrooms.women ?? 0}</Text>
+            <Text style={styles.text}>Mixtos: {bathrooms.unisex ?? 0}</Text>
+          </View>
         )}
 
-        <View style={styles.infoSection}>
-          <Text style={styles.description}>{building.description}</Text>
-
-          <View style={styles.detailsContainer}>
-            <View style={styles.detailItem}>
-              <MapPin size={16} color={COLORS.primary} />
-              <Text style={styles.detailText}>{building.type}</Text>
-            </View>
-
-            <View style={styles.detailItem}>
-              <Layers size={16} color={COLORS.primary} />
-              <Text style={styles.detailText}>
-                {building.floors} {building.floors === 1 ? 'piso' : 'pisos'}
-              </Text>
-            </View>
-
-            {building.hasRamp && (
-              <View style={styles.detailItem}>
-                <Accessibility size={16} color={COLORS.success} />
-                <Text style={[styles.detailText, { color: COLORS.success }]}>
-                  Con rampa de acceso
-                </Text>
-              </View>
-            )}
-
-            {building.isAccessible && (
-              <View style={styles.detailItem}>
-                <Accessibility size={16} color={COLORS.success} />
-                <Text style={[styles.detailText, { color: COLORS.success }]}>
-                  Completamente accesible
-                </Text>
-              </View>
-            )}
+        {services.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.label}>Servicios:</Text>
+            {services.map((s, index) => (
+              <Text key={index} style={styles.text}>• {s}</Text>
+            ))}
           </View>
+        )}
 
-          {building.facilities && building.facilities.length > 0 && (
-            <View style={styles.facilitiesContainer}>
-              <Text style={styles.facilitiesTitle}>Instalaciones:</Text>
-              {building.facilities.map((facility, index) => (
-                <Text key={index} style={styles.facilityItem}>
-                  • {facility}
-                </Text>
-              ))}
-            </View>
-          )}
-        </View>
+        {careers.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.label}>Carreras:</Text>
+            {careers.map((c, index) => (
+              <Text key={index} style={styles.text}>• {c}</Text>
+            ))}
+          </View>
+        )}
+
+        {entrances.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.label}>Entradas:</Text>
+            {entrances.map((e, index) => (
+              <Text key={index} style={styles.text}>• {e}</Text>
+            ))}
+          </View>
+        )}
+
+        {subject.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.label}>Materias:</Text>
+            {subject.map((m, index) => (
+              <Text key={index} style={styles.text}>• {m}</Text>
+            ))}
+          </View>
+        )}
       </ScrollView>
-
-      <TouchableOpacity style={styles.routeButton}>
-        <Text style={styles.routeButtonText}>Cómo llegar</Text>
-      </TouchableOpacity>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
+    flex: 1,
     backgroundColor: COLORS.white,
+    padding: DIMENSIONS.spacing.md,
     borderTopLeftRadius: DIMENSIONS.borderRadius.xl,
     borderTopRightRadius: DIMENSIONS.borderRadius.xl,
-    maxHeight: '70%',
-    elevation: 10,
     shadowColor: COLORS.black,
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.1,
-    shadowRadius: 8,
+    shadowRadius: 4,
+    elevation: 4,
   },
   header: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: DIMENSIONS.spacing.lg,
-    paddingVertical: DIMENSIONS.spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: COLORS.gray[200],
+    alignItems: 'center',
+    marginBottom: DIMENSIONS.spacing.md,
   },
   title: {
-    fontSize: DIMENSIONS.fontSize.lg,
-    fontFamily: 'Roboto-Bold',
+    fontSize: DIMENSIONS.fontSize.xxl,
+    fontWeight: 'bold',
     color: COLORS.primary,
     flex: 1,
+    flexWrap: 'wrap',
   },
   closeButton: {
-    padding: DIMENSIONS.spacing.xs,
+    padding: DIMENSIONS.spacing.sm,
   },
-  content: {
-    flex: 1,
+  scrollContent: {
+    paddingBottom: DIMENSIONS.spacing.xl,
   },
-  image: {
+  sectionTitle: {
+    fontSize: DIMENSIONS.fontSize.lg,
+    fontWeight: '600',
+    color: COLORS.gray[800],
+    marginTop: DIMENSIONS.spacing.md,
+    marginBottom: DIMENSIONS.spacing.sm,
+  },
+  text: {
+    fontSize: DIMENSIONS.fontSize.md,
+    color: COLORS.gray[700],
+    marginBottom: DIMENSIONS.spacing.sm,
+  },
+  mediaImage: {
     width: '100%',
     height: 200,
-    resizeMode: 'cover',
-  },
-  infoSection: {
-    padding: DIMENSIONS.spacing.lg,
-  },
-  description: {
-    fontSize: DIMENSIONS.fontSize.md,
-    fontFamily: 'Roboto-Regular',
-    color: COLORS.gray[700],
-    marginBottom: DIMENSIONS.spacing.md,
-    lineHeight: 22,
-  },
-  detailsContainer: {
-    marginBottom: DIMENSIONS.spacing.md,
-  },
-  detailItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: DIMENSIONS.spacing.sm,
-  },
-  detailText: {
-    fontSize: DIMENSIONS.fontSize.sm,
-    fontFamily: 'Roboto-Regular',
-    color: COLORS.gray[600],
-    marginLeft: DIMENSIONS.spacing.sm,
-  },
-  facilitiesContainer: {
-    marginTop: DIMENSIONS.spacing.md,
-  },
-  facilitiesTitle: {
-    fontSize: DIMENSIONS.fontSize.md,
-    fontFamily: 'Roboto-Medium',
-    color: COLORS.gray[800],
-    marginBottom: DIMENSIONS.spacing.sm,
-  },
-  facilityItem: {
-    fontSize: DIMENSIONS.fontSize.sm,
-    fontFamily: 'Roboto-Regular',
-    color: COLORS.gray[600],
-    marginBottom: DIMENSIONS.spacing.xs,
-    marginLeft: DIMENSIONS.spacing.sm,
-  },
-  routeButton: {
-    backgroundColor: COLORS.primary,
-    marginHorizontal: DIMENSIONS.spacing.lg,
-    marginVertical: DIMENSIONS.spacing.md,
     borderRadius: DIMENSIONS.borderRadius.md,
-    padding: DIMENSIONS.spacing.md,
-    alignItems: 'center',
+    marginBottom: DIMENSIONS.spacing.md,
+    backgroundColor: COLORS.gray[200],
   },
-  routeButtonText: {
-    color: COLORS.white,
-    fontSize: DIMENSIONS.fontSize.md,
-    fontFamily: 'Roboto-Medium',
+  tagContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: DIMENSIONS.spacing.sm,
+    marginVertical: DIMENSIONS.spacing.sm,
+  },
+  tag: {
+    backgroundColor: COLORS.gray[100],
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    borderRadius: DIMENSIONS.borderRadius.sm,
+    marginRight: DIMENSIONS.spacing.sm,
+    marginBottom: DIMENSIONS.spacing.sm,
+  },
+  tagText: {
+    fontSize: DIMENSIONS.fontSize.sm,
+    color: COLORS.gray[800],
+  },
+  divider: {
+    height: 1,
+    backgroundColor: COLORS.gray[300],
+    marginVertical: DIMENSIONS.spacing.md,
   },
 });
+

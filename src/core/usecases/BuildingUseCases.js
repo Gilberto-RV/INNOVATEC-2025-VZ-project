@@ -20,12 +20,8 @@ export class BuildingUseCases {
     // Aplicar filtros adicionales
     let filteredBuildings = buildings;
 
-    if (filters.hasRamp) {
-      filteredBuildings = filteredBuildings.filter(building => building.hasRamp);
-    }
-
-    if (filters.isAccessible) {
-      filteredBuildings = filteredBuildings.filter(building => building.isAccessible);
+    if (filters.accessibility) {
+      filteredBuildings = filteredBuildings.filter(building => building.accessibility);
     }
 
     if (filters.type) {

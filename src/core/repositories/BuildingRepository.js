@@ -1,17 +1,21 @@
+// src/core/repositories/BuildingRepository.js
+import api from '../../core/config/api';
+
 export class BuildingRepository {
   async getAllBuildings() {
-    throw new Error('Method not implemented');
+    const response = await api.get('/buildings');
+    return response.data;
   }
 
   async getBuildingById(id) {
-    throw new Error('Method not implemented');
+    const response = await api.get(`/buildings/${id}`);
+    return response.data;
   }
 
-  async searchBuildings(query, filters = {}) {
-    throw new Error('Method not implemented');
+  async createBuilding(buildingData) {
+    const response = await api.post('/buildings', buildingData);
+    return response.data;
   }
 
-  async loadBuildingsFromGeoJSON() {
-    throw new Error('Method not implemented');
-  }
-}
+  // Otros métodos: update, delete, etc.
+};
