@@ -76,7 +76,7 @@ export default function MapScreen() {
 
     try {
       const dbBuildings = await buildingUseCases.getAllBuildings();
-      console.log('Edificios desde la BDD:', dbBuildings);
+      //console.log('Edificios desde la BDD:', dbBuildings);
       const geoBuildings = caminos.features
         .filter(f => f.properties.tipo === 'EDIFICIO')
         .map(f => {
@@ -88,19 +88,23 @@ export default function MapScreen() {
 
           return {
             id,
-            name: dbInfo?.name || f.properties.name,
+            name: dbInfo?.name || f.properties.name || 'Edificio sin nombre',
             description: dbInfo?.description || 'Edificio del campus',
+            media: dbInfo?.media || null,
+            isAccessible: dbInfo?.accessibility ?? true,
+            floors: dbInfo?.floors ?? 1,
+            availability: dbInfo?.availability ?? true,
+            student_frequency: dbInfo?.student_frequency ?? 'Media',
+            bathrooms: dbInfo?.bathrooms ?? [],
+            facilities: dbInfo?.services ?? [],
+            careers: dbInfo?.careers ?? [],
+            entrances: dbInfo?.entrances ?? [],
+            subjects: dbInfo?.subject ?? [],
             coordinates: center,
             entradaId: f.properties.conexiones?.[0],
-            hasRamp: dbInfo?.hasRamp ?? true,
-            isAccessible: dbInfo?.isAccessible ?? true,
-            image: dbInfo?.image || null,
-            type: dbInfo?.type || null,
-            floors: dbInfo?.floors || null,
-            facilities: dbInfo?.facilities || [],
           };
         });
-
+      //console.log('Edificios procesados:', geoBuildings);
       setBuildings(geoBuildings);
     } catch (err) {
       Alert.alert('Error', 'No se pudieron cargar los edificios');

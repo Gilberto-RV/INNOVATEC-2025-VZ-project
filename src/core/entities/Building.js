@@ -5,14 +5,14 @@ export class Building {
     description,
     accessibility = false,
     floors = 1,
-    media = null,
+    media,
     services = [],
     availability = false,
     student_frequency = false,
     bathrooms = {},
     entrances = [],
-    careers = [],
-    subject = [],
+    careers = [], // ahora se espera un array de objetos
+    subject = [], // también array de objetos
     last_updated = null,
   }) {
     this.id = id;
@@ -20,14 +20,23 @@ export class Building {
     this.description = description;
     this.accessibility = accessibility;
     this.floors = floors;
-    this.image = media;
+    this.media = media;
     this.services = services;
     this.availability = availability;
     this.student_frequency = student_frequency;
     this.bathrooms = bathrooms;
     this.entrances = entrances;
-    this.careers = careers;
-    this.subject = subject;
+    this.careers = careers.map(career => ({
+      id: career._id || career.id,
+      name: career.name,
+      code: career.code
+    }));
+    this.subject = subject.map(sub => ({
+      code: sub.code,
+      name: sub.name,
+      type: sub.type,
+      floor: sub.floor
+    }));
     this.last_updated = last_updated;
   }
 

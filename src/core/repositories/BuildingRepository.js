@@ -12,10 +12,4 @@ export class BuildingRepository {
     return response.data;
   }
 
-  async createBuilding(buildingData) {
-    const response = await api.post('/buildings', buildingData);
-    return response.data;
-  }
-
-  // Otros métodos: update, delete, etc.
 };

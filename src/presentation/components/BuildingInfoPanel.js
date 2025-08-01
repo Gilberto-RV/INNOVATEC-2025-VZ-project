@@ -1,179 +1,277 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import { X } from 'lucide-react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { 
+  X, Accessibility, Layers, DoorOpen, Building, ArrowUpNarrowWide, Toilet, Library, GraduationCap
+} from 'lucide-react-native';
 import { COLORS } from '../../core/constants/colors';
 import { DIMENSIONS } from '../../core/constants/dimensions';
 
-export default function BuildingInfoPanel ({ building, onClose }) {
+export default function BuildingInfoPanel({ building, onClose }) {
   if (!building) return null;
-
-  const {
-    name,
-    description,
-    accessibility,
-    floors,
-    availability,
-    student_frequency,
-    bathrooms = {},
-    services = [],
-    careers = [],
-    entrances = [],
-    subject = [],
-  } = building;
-
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.title}>{building.name}</Text>
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <X size={24} color={COLORS.gray[600]} />
         </TouchableOpacity>
       </View>
-      <ScrollView style={styles.scrollView} contentContainerStyle={{ paddingBottom: 16 }}>
-        {description ? <Text style={styles.description}>{description}</Text> : null}
 
-        <View style={styles.section}>
-          <Text style={styles.label}>Accesibilidad:</Text>
-          <Text style={styles.text}>{accessibility || 'No especificado'}</Text>
+      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+        {building.media && (
+          <Image source={{ uri: building.media }} style={styles.image} />
+        )}
+        
+        <View style={styles.infoSection}>
+          <View style={styles.detailItem}>
+            <Building size={16} color={COLORS.primary} />
+            <Text style={styles.description}>{building.description}</Text>
+
+          </View>
+          
+          <View style={styles.detailsContainer}>
+            {building.floors && (
+              <View style={styles.detailItem}>
+                <Layers size={16} color={COLORS.primary} />
+                <Text style={styles.detailText}>
+                  Cuenta con {building.floors} {building.floors === 1 ? 'planta' : 'plantas'}
+                </Text>
+              </View>
+            )}
+
+            {building.isAccessible && (
+              <View style={styles.detailItem}>
+                <Accessibility size={16} color={COLORS.success} />
+                <Text style={[styles.detailText, { color: COLORS.success }]}>
+                  Completamente accesible
+                </Text>
+              </View>
+            )}
+            {/* ✅ Datos adicionales */}
+            <View style={styles.detailItem}>
+              <DoorOpen size={16} color={COLORS.success} />
+              <Text style={[styles.detailText, { color: COLORS.success }]}>
+                {building.availability ? 'Disponible' : 'No disponible'}
+              </Text>
+            </View>
+            {building.student_frequency && (
+              <View style={styles.detailItem}>
+                <ArrowUpNarrowWide size={16} color={
+                  building.student_frequency === "high"
+                    ? COLORS.error
+                    : building.student_frequency === "medium"
+                    ? COLORS.warning
+                    : COLORS.success
+                } />
+                <Text
+                  style={[
+                    styles.detailText,
+                    {
+                      color:
+                        building.student_frequency === "high"
+                          ? COLORS.error
+                          : building.student_frequency === "medium"
+                          ? COLORS.warning
+                          : COLORS.success,
+                    },
+                  ]}
+                >
+                  {building.student_frequency === "high" && "Alta frecuencia estudiantil"}
+                  {building.student_frequency === "medium" && "Frecuencia estudiantil moderada"}
+                  {building.student_frequency === "low" && "Frecuencia estudiantil baja"}
+                </Text>
+              </View>
+            )}
+          </View>
+
+          {/* ✅ Baños por piso con ícono */}
+          {building.bathrooms &&
+            Object.keys(building.bathrooms).length > 0 &&
+            Object.values(building.bathrooms).some((value) => value === true) && (
+              <View style={styles.section}>
+                <Text style={styles.sectionTitle}>
+                  <Toilet size={16} color={COLORS.primary} /> Baños disponibles en:
+                </Text>
+
+                {Object.entries(building.bathrooms)
+                  .filter(([_, value]) => value === true)
+                  .map(([floor, _]) => (
+                    <View key={floor} style={styles.detailItem}>
+                      <Layers size={16} color={COLORS.primary} />
+                      <Text style={styles.detailText}>
+                        Planta {floor.replace("floor_", "")}
+                      </Text>
+                    </View>
+                  ))}
+              </View>
+          )}
+
+
+          {/* ✅ Instalaciones */}
+          {building.facilities && building.facilities.length > 0 && (
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>
+                Servicios:</Text>
+              {building.facilities.map((service, i) => (
+                <Text key={i} style={styles.text}><Library size={16} color={COLORS.primary} /> {service.name}</Text>
+              ))}
+            </View>
+          )}
+
+          {/* ✅ Carreras */}
+          {building.careers && building.careers.length > 0 && (
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Carreras asignadas:</Text>
+              {building.careers.map((career, i) => (
+                <Text key={i} style={styles.text}><GraduationCap size={16} color={COLORS.primary} />   {career.name}</Text>
+              ))}
+            </View>
+          )}
+
+
+          {/* ✅ Entradas con lógica contextual */}
+          {building.entrances && building.entrances.length > 0 && (
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>
+                {building.entrances.length === 1
+                  ? 'Este edificio cuenta con una única entrada:'
+                  : `Este edificio tiene ${building.entrances.length} entradas:`}
+              </Text>
+              {building.entrances.map((e, i) => (
+                <View key={i} style={{ marginBottom: 8 }}>
+                  {e.description && (
+                    <Text style={styles.text}>• {e.description}</Text>
+                  )}
+                  {e.location_hint && (
+                    <Text style={styles.text}>
+                      <Text style={{ fontWeight: 'bold' }}>Ubicado</Text> {e.location_hint}
+                    </Text>
+                  )}
+                </View>
+              ))}
+            </View>
+          )}
+
+          {/* ✅ Tipos de salones */}
+          {building.subjects && building.subjects.length > 0 && (
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Espacios académicos en este edificio:</Text>
+              {/* Agrupar por tipo de salón */}
+              {Array.from(
+                building.subjects.reduce((map, item) => {
+                  if (!map.has(item.type)) map.set(item.type, []);
+                  map.get(item.type).push(item);
+                  return map;
+                }, new Map())
+              ).map(([type, rooms], index) => (
+                <View key={index} style={{ marginBottom: 10 }}>
+                  {rooms.map((room, i) => (
+                    <Text key={i} style={styles.text}>
+                      •  {room.name} ({room.floor === 5 ? "Distribuidos por todo el edificio" : `Piso ${room.floor}`})
+                    </Text>
+                  ))}
+                </View>
+              ))}
+            </View>
+          )}
         </View>
-
-        <View style={styles.section}>
-          <Text style={styles.label}>Pisos:</Text>
-          <Text style={styles.text}>{floors ?? 'Desconocido'}</Text>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.label}>Disponibilidad:</Text>
-          <Text style={styles.text}>{availability || 'No disponible'}</Text>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.label}>Frecuencia de estudiantes:</Text>
-          <Text style={styles.text}>{student_frequency || 'No especificada'}</Text>
-        </View>
-
-        {Object.keys(bathrooms).length > 0 && (
-          <View style={styles.section}>
-            <Text style={styles.label}>Baños:</Text>
-            <Text style={styles.text}>Hombres: {bathrooms.men ?? 0}</Text>
-            <Text style={styles.text}>Mujeres: {bathrooms.women ?? 0}</Text>
-            <Text style={styles.text}>Mixtos: {bathrooms.unisex ?? 0}</Text>
-          </View>
-        )}
-
-        {services.length > 0 && (
-          <View style={styles.section}>
-            <Text style={styles.label}>Servicios:</Text>
-            {services.map((s, index) => (
-              <Text key={index} style={styles.text}>• {s}</Text>
-            ))}
-          </View>
-        )}
-
-        {careers.length > 0 && (
-          <View style={styles.section}>
-            <Text style={styles.label}>Carreras:</Text>
-            {careers.map((c, index) => (
-              <Text key={index} style={styles.text}>• {c}</Text>
-            ))}
-          </View>
-        )}
-
-        {entrances.length > 0 && (
-          <View style={styles.section}>
-            <Text style={styles.label}>Entradas:</Text>
-            {entrances.map((e, index) => (
-              <Text key={index} style={styles.text}>• {e}</Text>
-            ))}
-          </View>
-        )}
-
-        {subject.length > 0 && (
-          <View style={styles.section}>
-            <Text style={styles.label}>Materias:</Text>
-            {subject.map((m, index) => (
-              <Text key={index} style={styles.text}>• {m}</Text>
-            ))}
-          </View>
-        )}
       </ScrollView>
+
+      <TouchableOpacity style={styles.routeButton}>
+        <Text style={styles.routeButtonText}>Cómo llegar</Text>
+      </TouchableOpacity>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.white,
-    padding: DIMENSIONS.spacing.md,
     borderTopLeftRadius: DIMENSIONS.borderRadius.xl,
     borderTopRightRadius: DIMENSIONS.borderRadius.xl,
-    shadowColor: COLORS.black,
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 4,
+    padding: 16,
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: DIMENSIONS.spacing.md,
+    justifyContent: 'space-between',
+    paddingHorizontal: DIMENSIONS.spacing.lg,
+    paddingVertical: DIMENSIONS.spacing.md,
+    borderBottomWidth: 1,
+    borderBottomColor: COLORS.gray[200],
   },
   title: {
-    fontSize: DIMENSIONS.fontSize.xxl,
-    fontWeight: 'bold',
+    fontSize: DIMENSIONS.fontSize.lg,
+    fontFamily: 'Roboto-Bold',
     color: COLORS.primary,
     flex: 1,
-    flexWrap: 'wrap',
   },
   closeButton: {
-    padding: DIMENSIONS.spacing.sm,
+    padding: DIMENSIONS.spacing.xs,
   },
-  scrollContent: {
+  content: {
+    flex: 1,
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'cover',
+    borderRadius: DIMENSIONS.borderRadius.md,
+    marginBottom: DIMENSIONS.spacing.md,
+  },
+  infoSection: {
+    paddingHorizontal: DIMENSIONS.spacing.lg,
     paddingBottom: DIMENSIONS.spacing.xl,
   },
-  sectionTitle: {
+  description: {
     fontSize: DIMENSIONS.fontSize.lg,
-    fontWeight: '600',
+    fontFamily: 'Roboto-Regular',
+    color: COLORS.gray[700],
+    marginLeft: DIMENSIONS.spacing.sm,
+  },
+  detailsContainer: {
+    marginBottom: DIMENSIONS.spacing.md,
+  },
+  detailItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: DIMENSIONS.spacing.sm,
+  },
+  detailText: {
+    fontSize: DIMENSIONS.fontSize.sm,
+    fontFamily: 'Roboto-Regular',
+    color: COLORS.gray[600],
+    marginLeft: DIMENSIONS.spacing.sm,
+  },
+  section: {
+    marginBottom: DIMENSIONS.spacing.md,
+  },
+  sectionTitle: {
+    fontSize: DIMENSIONS.fontSize.md,
+    fontFamily: 'Roboto-Medium',
     color: COLORS.gray[800],
-    marginTop: DIMENSIONS.spacing.md,
     marginBottom: DIMENSIONS.spacing.sm,
   },
   text: {
-    fontSize: DIMENSIONS.fontSize.md,
-    color: COLORS.gray[700],
-    marginBottom: DIMENSIONS.spacing.sm,
-  },
-  mediaImage: {
-    width: '100%',
-    height: 200,
-    borderRadius: DIMENSIONS.borderRadius.md,
-    marginBottom: DIMENSIONS.spacing.md,
-    backgroundColor: COLORS.gray[200],
-  },
-  tagContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: DIMENSIONS.spacing.sm,
-    marginVertical: DIMENSIONS.spacing.sm,
-  },
-  tag: {
-    backgroundColor: COLORS.gray[100],
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-    borderRadius: DIMENSIONS.borderRadius.sm,
-    marginRight: DIMENSIONS.spacing.sm,
-    marginBottom: DIMENSIONS.spacing.sm,
-  },
-  tagText: {
     fontSize: DIMENSIONS.fontSize.sm,
-    color: COLORS.gray[800],
+    fontFamily: 'Roboto-Regular',
+    color: COLORS.gray[600],
+    marginLeft: DIMENSIONS.spacing.sm,
+    marginBottom: DIMENSIONS.spacing.xs,
   },
-  divider: {
-    height: 1,
-    backgroundColor: COLORS.gray[300],
+  routeButton: {
+    backgroundColor: COLORS.primary,
+    marginHorizontal: DIMENSIONS.spacing.lg,
     marginVertical: DIMENSIONS.spacing.md,
+    borderRadius: DIMENSIONS.borderRadius.md,
+    padding: DIMENSIONS.spacing.md,
+    alignItems: 'center',
+  },
+  routeButtonText: {
+    color: COLORS.white,
+    fontSize: DIMENSIONS.fontSize.md,
+    fontFamily: 'Roboto-Medium',
   },
 });
-
