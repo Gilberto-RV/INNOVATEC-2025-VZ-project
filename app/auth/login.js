@@ -86,12 +86,6 @@ export default function LoginScreen() {
               <Text style={styles.linkText}>¿No tienes cuenta? Regístrate</Text>
             </TouchableOpacity>
           </View>
-
-          <View style={styles.demoContainer}>
-            <Text style={styles.demoTitle}>Cuentas de demostración:</Text>
-            <Text style={styles.demoText}>admin@instituto.edu / 123456</Text>
-            <Text style={styles.demoText}>estudiante@instituto.edu / 123456</Text>
-          </View>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -162,23 +156,5 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     fontSize: DIMENSIONS.fontSize.sm,
     fontFamily: 'Roboto-Regular',
-  },
-  demoContainer: {
-    backgroundColor: COLORS.secondary,
-    padding: DIMENSIONS.spacing.md,
-    borderRadius: DIMENSIONS.borderRadius.md,
-    alignItems: 'center',
-  },
-  demoTitle: {
-    fontSize: DIMENSIONS.fontSize.sm,
-    fontFamily: 'Roboto-Medium',
-    color: COLORS.gray[700],
-    marginBottom: DIMENSIONS.spacing.xs,
-  },
-  demoText: {
-    fontSize: DIMENSIONS.fontSize.xs,
-    fontFamily: 'Roboto-Regular',
-    color: COLORS.gray[600],
-    marginBottom: 2,
-  },
+  }
 });

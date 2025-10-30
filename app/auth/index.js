@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'expo-router';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { serviceContainer } from '../../src/infrastructure/di/ServiceContainer';
 import { COLORS } from '../../src/core/constants/colors';
 
@@ -14,13 +15,24 @@ export default function AuthIndex() {
 
   const checkAuthStatus = async () => {
     try {
-      const isAuthenticated = await authUseCases.isAuthenticated();
-      if (isAuthenticated) {
-        router.replace('/(main)');
+      // Intenta obtener el token guardado localmente
+      const token = await AsyncStorage.getItem('authToken');
+
+      if (token) {
+        // También puedes validar el token si quieres con un endpoint
+        const isAuthenticated = await authUseCases.isAuthenticated(token);
+
+        if (isAuthenticated) {
+          router.replace('/(main)');
+        } else {
+          await AsyncStorage.removeItem('authToken'); // Limpia si no es válido
+          router.replace('/auth/login');
+        }
       } else {
         router.replace('/auth/login');
       }
     } catch (error) {
+      console.error('Error al verificar sesión:', error);
       router.replace('/auth/login');
     }
   };

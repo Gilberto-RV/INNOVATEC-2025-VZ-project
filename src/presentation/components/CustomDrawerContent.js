@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 import { useRouter } from 'expo-router';
 import { User, Map, Settings, LogOut } from 'lucide-react-native';
@@ -12,36 +12,33 @@ export default function CustomDrawerContent(props) {
   const authUseCases = serviceContainer.get('authUseCases');
 
   const handleLogout = () => {
-    Alert.alert(
-      'Cerrar Sesión',
-      '¿Estás seguro que deseas cerrar sesión?',
-      [
-        { text: 'Cancelar', style: 'cancel' },
-        { 
-          text: 'Cerrar Sesión', 
-          style: 'destructive',
-          onPress: async () => {
-            try {
-              await authUseCases.logout();
-              router.replace('/auth');
-            } catch (error) {
-              Alert.alert('Error', 'No se pudo cerrar la sesión');
-            }
+    Alert.alert('Cerrar Sesión', '¿Estás seguro que deseas cerrar sesión?', [
+      { text: 'Cancelar', style: 'cancel' },
+      {
+        text: 'Cerrar Sesión',
+        style: 'destructive',
+        onPress: async () => {
+          try {
+            await authUseCases.logout();
+            router.replace('/auth');
+          } catch (error) {
+            console.error('Error al cerrar sesión:', error);
+            Alert.alert('Error', 'No se pudo cerrar la sesión');
           }
         },
-      ]
-    );
+      },
+    ]);
   };
 
   const DrawerItem = ({ icon: Icon, label, onPress, isLogout = false }) => (
-    <TouchableOpacity 
+    <TouchableOpacity
       style={[styles.drawerItem, isLogout && styles.logoutItem]}
       onPress={onPress}
     >
-      <Icon 
-        size={24} 
-        color={isLogout ? COLORS.error : COLORS.primary} 
-        style={styles.drawerIcon} 
+      <Icon
+        size={24}
+        color={isLogout ? COLORS.error : COLORS.primary}
+        style={styles.drawerIcon}
       />
       <Text style={[styles.drawerLabel, isLogout && styles.logoutLabel]}>
         {label}
@@ -53,11 +50,25 @@ export default function CustomDrawerContent(props) {
     <DrawerContentScrollView {...props} style={styles.container}>
       <View style={styles.header}>
         <View style={styles.avatarContainer}>
-          <User size={40} color={COLORS.primary} />
+          {user?.avatar ? (
+            <Image
+              source={{ uri: user.avatar }}
+              style={styles.avatarImage}
+              resizeMode="cover"
+            />
+          ) : (
+            <User size={40} color={COLORS.primary} />
+          )}
         </View>
         <View style={styles.userInfo}>
-          <Text style={styles.userName}>{user?.name || 'Usuario'}</Text>
-          <Text style={styles.userEmail}>{user?.email || ''}</Text>
+          <Text style={styles.userName}>
+            {user?.email || 'usuario@correo.com'}
+          </Text>
+          <Text style={styles.userRole}>
+            {user?.role
+              ? user.role.charAt(0).toUpperCase() + user.role.slice(1)
+              : 'Invitado'}
+          </Text>
         </View>
       </View>
 
@@ -67,13 +78,11 @@ export default function CustomDrawerContent(props) {
           label="Mapa"
           onPress={() => props.navigation.navigate('index')}
         />
-        
         <DrawerItem
           icon={User}
           label="Mi Perfil"
           onPress={() => props.navigation.navigate('profile')}
         />
-        
         <DrawerItem
           icon={Settings}
           label="Configuración"
@@ -102,29 +111,36 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.secondary,
     padding: DIMENSIONS.spacing.lg,
     marginBottom: DIMENSIONS.spacing.md,
+    alignItems: 'center',
   },
   avatarContainer: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: DIMENSIONS.spacing.md,
+    overflow: 'hidden',
+    marginBottom: DIMENSIONS.spacing.sm,
+  },
+  avatarImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 32,
   },
   userInfo: {
-    marginLeft: DIMENSIONS.spacing.xs,
+    alignItems: 'center',
   },
   userName: {
-    fontSize: DIMENSIONS.fontSize.lg,
+    fontSize: DIMENSIONS.fontSize.md,
     fontFamily: 'Roboto-Medium',
     color: COLORS.primary,
-    marginBottom: DIMENSIONS.spacing.xs,
   },
-  userEmail: {
+  userRole: {
     fontSize: DIMENSIONS.fontSize.sm,
     fontFamily: 'Roboto-Regular',
     color: COLORS.gray[600],
+    marginTop: 2,
   },
   menu: {
     flex: 1,

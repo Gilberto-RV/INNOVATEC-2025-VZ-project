@@ -1,8 +1,9 @@
+// app/(tabs)/_layout.js o según tu estructura
 import { Drawer } from 'expo-router/drawer';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useEffect, useState } from 'react';
-import CustomDrawerContent from '../../src/presentation/components/CustomDrawerContent';
 import { serviceContainer } from '../../src/infrastructure/di/ServiceContainer';
+import CustomDrawerContent from '../../src/presentation/components/CustomDrawerContent';
 import { COLORS } from '../../src/core/constants/colors';
 
 export default function MainLayout() {
@@ -10,17 +11,17 @@ export default function MainLayout() {
   const authUseCases = serviceContainer.get('authUseCases');
 
   useEffect(() => {
+    const loadUser = async () => {
+      try {
+        const currentUser = await authUseCases.getCurrentUser();
+        setUser(currentUser);
+      } catch (error) {
+        console.error('Error loading user:', error.message || error);
+      }
+    };
+
     loadUser();
   }, []);
-
-  const loadUser = async () => {
-    try {
-      const currentUser = await authUseCases.getCurrentUser();
-      setUser(currentUser);
-    } catch (error) {
-      console.error('Error loading user:', error);
-    }
-  };
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>

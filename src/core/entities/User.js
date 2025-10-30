@@ -1,8 +1,10 @@
+// src/core/entities/User.js
+
 export class User {
-  constructor({ id, email, name, avatar = null, createdAt = new Date() }) {
+  constructor({ id, email, role = 'estudiante', avatar = null, createdAt = new Date() }) {
     this.id = id;
     this.email = email;
-    this.name = name;
+    this.role = role;
     this.avatar = avatar;
     this.createdAt = createdAt;
   }
@@ -11,7 +13,7 @@ export class User {
     return new User({
       id: json._id || json.id,
       email: json.email,
-      name: json.name,
+      role: json.role,
       avatar: json.avatar,
       createdAt: new Date(json.createdAt),
     });
@@ -21,7 +23,7 @@ export class User {
     return {
       id: this.id,
       email: this.email,
-      name: this.name,
+      role: this.role,
       avatar: this.avatar,
       createdAt: this.createdAt.toISOString(),
     };
