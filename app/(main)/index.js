@@ -3,7 +3,9 @@ import { View, StyleSheet, Text, Dimensions, Alert, ScrollView, Animated, Image 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import * as Location from 'expo-location';
-import caminos from '../../assets/geo/caminos.json';
+import edificios from '../../assets/geo/Edificios.json';
+import caminos from '../../assets/geo/Caminos.json';
+import entradas from '../../assets/geo/Entradas.json';
 import { buildGraph, findRoute } from '../../src/core/utils/graphUtils';
 
 import MapHeader from '../../src/presentation/components/MapHeader';
@@ -70,65 +72,86 @@ export default function MapScreen() {
   }, [searchQuery, buildings]);
 
   const processGeoJSON = async () => {
-    const { graph, nodeCoords } = buildGraph(caminos.features);
-    setGraph(graph);
-    setNodeCoords(nodeCoords);
-
     try {
+      console.log('📍 Cargando datos geográficos modulares...');
+      console.log(`  Edificios: ${edificios.features?.length || 0}`);
+      console.log(`  Caminos: ${caminos.features?.length || 0}`);
+      console.log(`  Entradas: ${entradas.features?.length || 0}`);
+
+      // Combinar entradas y caminos para construir el grafo de navegación
+      const allFeatures = [...entradas.features, ...caminos.features];
+      const { graph, nodeCoords } = buildGraph(allFeatures);
+      setGraph(graph);
+      setNodeCoords(nodeCoords);
+
+      // Obtener edificios desde MongoDB
       const dbBuildings = await buildingUseCases.getAllBuildings();
-      //console.log('Edificios desde la BDD:', dbBuildings);
-      const geoBuildings = caminos.features
-        .filter(f => f.properties.tipo === 'EDIFICIO')
-        .map(f => {
-          const center = calculateCenterFromPolygon(f.geometry.coordinates[0]);
-          const id = f.properties.id;
+      console.log(`  Edificios en BD: ${dbBuildings.length}`);
+      
+      // Procesar solo los edificios del JSON modular (13 edificios)
+      const geoBuildings = edificios.features.map(f => {
+        const center = calculateCenterFromPolygon(f.geometry.coordinates[0]);
+        const id = f.properties.id;
 
-          // Buscar edificio en MongoDB
-          const dbInfo = dbBuildings.find(b => b.id === id);
+        // Buscar edificio en MongoDB
+        const dbInfo = dbBuildings.find(b => b.id === id || b._id === id);
 
-          return {
-            id,
-            name: dbInfo?.name || f.properties.name || 'Edificio sin nombre',
-            description: dbInfo?.description || 'Edificio del campus',
-            media: dbInfo?.media || null,
-            isAccessible: dbInfo?.accessibility ?? true,
-            floors: dbInfo?.floors ?? 1,
-            availability: dbInfo?.availability ?? true,
-            student_frequency: dbInfo?.student_frequency ?? 'Media',
-            bathrooms: dbInfo?.bathrooms ?? [],
-            facilities: dbInfo?.services ?? [],
-            careers: dbInfo?.careers ?? [],
-            entrances: dbInfo?.entrances ?? [],
-            subjects: dbInfo?.subject ?? [],
-            coordinates: center,
-            entradaId: f.properties.conexiones?.[0],
-          };
-        });
-      //console.log('Edificios procesados:', geoBuildings);
-      setBuildings(geoBuildings);
-    } catch (err) {
-      Alert.alert('Error', 'No se pudieron cargar los edificios');
-    }
-
-    const lines = caminos.features
-      .filter(f => f.geometry.type === 'LineString')
-      .map(f => ({
-        id: f.properties?.id || Math.random().toString(),
-        coordinates: f.geometry.coordinates.map(coord => ({
-          latitude: coord[1],
-          longitude: coord[0],
-        })),
-      }));
-
-    setGeojsonLines(lines);
-
-    if (lines.length > 0) {
-      const centro = calculateCenter(lines[0].coordinates);
-      setMapRegion({
-        ...centro,
-        latitudeDelta: LATITUDE_DELTA,
-        longitudeDelta: LONGITUDE_DELTA,
+        return {
+          id,
+          name: dbInfo?.name || f.properties.name || 'Edificio sin nombre',
+          description: dbInfo?.description || 'Edificio del campus',
+          media: dbInfo?.media || null,
+          isAccessible: dbInfo?.accessibility ?? true,
+          floors: dbInfo?.floors ?? 1,
+          availability: dbInfo?.availability ?? true,
+          student_frequency: dbInfo?.student_frequency ?? 'Media',
+          bathrooms: dbInfo?.bathrooms || { floor_1: false },
+          facilities: dbInfo?.id_services ?? [],
+          careers: dbInfo?.id_careers ?? [],
+          entrances: dbInfo?.entrances ?? [],
+          subjects: dbInfo?.subjects ?? [],
+          coordinates: center,
+          entradaId: f.properties.conexiones?.[0],
+        };
       });
+      
+      console.log(`✅ ${geoBuildings.length} edificios procesados`);
+      setBuildings(geoBuildings);
+
+      // Procesar líneas de caminos para visualización en el mapa
+      const lines = caminos.features
+        .filter(f => f.geometry.type === 'LineString' || f.geometry.type === 'Point')
+        .map(f => {
+          if (f.geometry.type === 'LineString') {
+            return {
+              id: f.properties?.id || Math.random().toString(),
+              coordinates: f.geometry.coordinates.map(coord => ({
+                latitude: coord[1],
+                longitude: coord[0],
+              })),
+            };
+          }
+          return null;
+        })
+        .filter(line => line !== null);
+
+      setGeojsonLines(lines);
+      console.log(`✅ ${lines.length} líneas de caminos cargadas`);
+
+      // Establecer región del mapa
+      if (geoBuildings.length > 0) {
+        const centro = geoBuildings[0].coordinates;
+        setMapRegion({
+          latitude: centro.latitude,
+          longitude: centro.longitude,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA,
+        });
+        console.log('✅ Región del mapa establecida');
+      }
+    } catch (err) {
+      console.error('❌ Error procesando GeoJSON:', err);
+      Alert.alert('Error', 'No se pudieron cargar los datos del mapa');
     }
   };
 

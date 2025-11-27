@@ -1,0 +1,236 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-12",
+        "name": "ENTRADA EDIFICIO L",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-3\"]",
+        "edificio_asociado": "E-12"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12036731315442,
+          19.40740334255848
+        ],
+        "type": "Point"
+      },
+      "id": 0
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-14",
+        "name": "ENTRADA EDIFICIO N",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-5\"]",
+        "edificio_asociado": "E-14"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12041207926495,
+          19.407803940068817
+        ],
+        "type": "Point"
+      },
+      "id": 1
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-16",
+        "name": "ENTRADA EDIFICIO O",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-47\"]",
+        "edificio_asociado": "E-16"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12044964864825,
+          19.408055458727333
+        ],
+        "type": "Point"
+      },
+      "id": 2
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-26",
+        "name": "ENTRADA EDIFICIO Y",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-8\"]",
+        "edificio_asociado": "E-26"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12012001969998,
+          19.408026068865652
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-27-B",
+        "name": "ENTRADA EDIFICIO Z-B",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-53\"]",
+        "edificio_asociado": "E-27-B"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12011178995404,
+          19.408375338814366
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-25",
+        "name": "ENTRADA EDIFICIO X",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-18\"]",
+        "edificio_asociado": "E-25"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.119701169495,
+          19.40831336348859
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-13",
+        "name": "ENTRADA EDIFICIO M",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-23\"]",
+        "edificio_asociado": "E-13"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12001558657674,
+          19.407611447703147
+        ],
+        "type": "Point"
+      },
+      "id": 6
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-23",
+        "name": "ENTRADA EDIFICIO V",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-111\"]",
+        "edificio_asociado": "E-23"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11913788951749,
+          19.40818087376907
+        ],
+        "type": "Point"
+      },
+      "id": 7
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-20",
+        "name": "ENTRADA EDIFICIO S",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-14\",\"CR-19\",\"CR-30\"]",
+        "edificio_asociado": "E-20"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11937798085297,
+          19.4077683449009
+        ],
+        "type": "Point"
+      },
+      "id": 8
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-19",
+        "name": "ENTRADA EDIFICIO R",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-27\"]",
+        "edificio_asociado": "E-19"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.1196555548371,
+          19.407343750829867
+        ],
+        "type": "Point"
+      },
+      "id": 9
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-18",
+        "name": "ENTRADA EDIFICIO Q",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-36\"]",
+        "edificio_asociado": "E-18"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11902276070191,
+          19.407291257815842
+        ],
+        "type": "Point"
+      },
+      "id": 10
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-21",
+        "name": "ENTRADA EDIFICIO T",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-37\",\"CR-39\"]",
+        "edificio_asociado": "E-21"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.1187884907519,
+          19.406884923922732
+        ],
+        "type": "Point"
+      },
+      "id": 11
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EE-27",
+        "name": "ENTRADA EDIFICIO Z",
+        "tipo": "ENTRADA_EDIFICIO",
+        "conexiones": "[\"CR-44\",\"CR-40\"]",
+        "edificio_asociado": "E-27"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11846848731436,
+          19.406722143448434
+        ],
+        "type": "Point"
+      },
+      "id": 12
+    }
+  ]
+}

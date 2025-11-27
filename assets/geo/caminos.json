@@ -1,1 +1,2486 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"id":"CR-3","name":"CRUCE CENTRO ZOCALO","tipo":"CRUCE","conexiones":["CR-2","EE-14","CR-4"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12029188219229,19.40740681376552],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-6","name":"CRUCE SUPERIOR E N","tipo":"CRUCE","conexiones":["CR-1","CR-5"],"edificio_asociado":null},"geometry":{"coordinates":[-98.1205788613889,19.407641166218994],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-5","name":"CRUCE SUPERIOR P N","tipo":"CRUCE","conexiones":["CR-4","EE-14","CR-6"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12044041455579,19.40763078899616],"type":"Point"}},{"type":"Feature","properties":{"id":"EE-14","name":"ENTRADA EDIFICIO N","tipo":"ENTRADA_EDIFICIO","conexiones":["CR-5"],"edificio_asociado":"E-14"},"geometry":{"coordinates":[-98.12041290856257,19.407804607398887],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-4","name":"CRUCE SUPERIOR L","tipo":"CRUCE","conexiones":["CR-3","CR-5","CR-7"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12026712679825,19.407604845935126],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-8","name":"CRUCE SUPERIOR N Y","tipo":"CRUCE","conexiones":["CR-7","CR-9"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12010203750849,19.408001426138554],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-7","name":"CRUCE SUPERIOR M","tipo":"CRUCE","conexiones":["CR-4","CR-8","CR-16"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12016202945746,19.407589554138596],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-9","name":"CRUCE CURVA YE","tipo":"CRUCE CURVA","conexiones":["CR-8","CR-9"],"edificio_asociado":"null"},"geometry":{"coordinates":[-98.11996355929818,19.407983228255716],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-10","name":"CRUCE NORTE YE","tipo":"CRUCE","conexiones":["CR-9","CR-11"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11989916890626,19.40798089242901],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-11","name":"CRUCE CURVA NE","tipo":"CRUCE CURVA","conexiones":["CR-10","CR-12"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11980671090714,19.407986342691203],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-12","name":"CRUCE NORTE XS","tipo":"CRUCE","conexiones":["CR-11","CR-13","CR-17"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11964986251611,19.407958312768272],"type":"Point"},"id":10},{"type":"Feature","properties":{"id":"CR-13","name":"CRUCE CURVA VB","tipo":"CRUCE CURVA","conexiones":["CR-12","CR-14"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11971741980958,19.40787214568485],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-14","name":"CRUCE CENTRO BA","tipo":"CRUCE","conexiones":["CR-13","CR-15"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11972144382945,19.407803829132817],"type":"Point"},"id":12},{"type":"Feature","properties":{"id":"CR-15","name":"CRUCE CENTRO R","tipo":"CRUCE","conexiones":["CR-14","CR-16"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11976269003505,19.407609316570728],"type":"Point"},"id":13},{"type":"Feature","properties":{"id":"CR-16","name":"CRUCE SUPERIOR CENTRO R","tipo":"CRUCE","conexiones":["CR-15","CR-7"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11978582815058,19.407513483466687],"type":"Point"},"id":14},{"type":"Feature","properties":{"id":"EE-12","name":"ENTRADA EDIFICIO L","tipo":"ENTRADA_EDIFICIO","conexiones":["CR-3"],"edificio_asociado":"E-12"},"geometry":{"coordinates":[-98.12036688370009,19.4074078979464],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-1","name":"CRUCE PRINCIPAL EA","tipo":"CRUCE","conexiones":["AP-003","CR-6","CR-2"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12064946010476,19.407280557322082],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-2","name":"CRUCE CURVA L","tipo":"CRUCE CURVA","conexiones":["CR-1","CR-3"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12032122191829,19.407229535854796],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-0","name":"CRUCE CURVA EP","tipo":"CRUCE CURVA","conexiones":["EP-003","AP-003"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12103179341126,19.40733417308384],"type":"Point"}},{"type":"Feature","properties":{"id":"AP-003","name":"ACCESO PRINCIPAL 3","tipo":"ACCESO PRINCIPAL","conexiones":["CR-0","CR-1"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12072556001961,19.407290934567214],"type":"Point"}},{"type":"Feature","properties":{"id":"CR-17","name":"CRUCE NORTE XN","tipo":"CRUCE","conexiones":["CR-12","CR-18","CR-19"],"edificio_asociado":null},"geometry":{"coordinates":[-98.1196069355878,19.407957534159294],"type":"Point"},"id":20},{"type":"Feature","properties":{"id":"EE-24","name":"ENTRADA EDIFICIO X","tipo":"ENTRADA_EDIFICIO","conexiones":["CR-18"],"edificio_asociado":"E-24"},"geometry":{"coordinates":[-98.11970225005915,19.408316570334094],"type":"Point"},"id":21},{"type":"Feature","properties":{"id":"CR-18","name":"CRUCE NORTE X","tipo":"CRUCE","conexiones":["CR-17","EE-24"],"edificio_asociado":null},"geometry":{"coordinates":[-98.1196886339374,19.40826391657525],"type":"Point"},"id":22},{"type":"Feature","properties":{"id":"CR-19","name":"CRUCE NORTE SAO","tipo":"CRUCE","conexiones":["CR-17","CR-20","CR-21"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11933916373398,19.407928128536483],"type":"Point"},"id":23},{"type":"Feature","properties":{"id":"CR-20","name":"CRUCE NORTE CAO","tipo":"CRUCE","conexiones":["CR-19","CR-22"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11931401360852,19.408156798929582],"type":"Point"},"id":24},{"type":"Feature","properties":{"id":"CR-22","name":"CRUCE NORTE NAO","tipo":"CRUCE","conexiones":["CR-20","CR-21"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11920838308244,19.408148259377455],"type":"Point"},"id":25},{"type":"Feature","properties":{"id":"CR-21","name":"CRUCE NORTE AAO","tipo":"CRUCE","conexiones":["CR-19","CR-22"],"edificio_asociado":null},"geometry":{"coordinates":[-98.11923453921221,19.40791769129075],"type":"Point"},"id":26},{"type":"Feature","properties":{"id":"EE-23","name":"ENTRADA EDIFICIO V","tipo":"ENTRADA_EDIFICIO","conexiones":["CR-22"],"edificio_asociado":"E-23"},"geometry":{"coordinates":[-98.1191932930073,19.408187161779693],"type":"Point"},"id":27},{"type":"Feature","properties":{"id":"EP-003","name":"ENTRADA PRINCIPAL 3","tipo":"ENTRADA PRINCIPAL","conexiones":["CR-0"],"edificio_asociado":null},"geometry":{"coordinates":[-98.12107396926747,19.407190621165057],"type":"Point"}},{"type":"Feature","properties":{"id":"E-12","name":"EDIFICIO L","tipo":"EDIFICIO","conexiones":["EE-12"]},"geometry":{"coordinates":[[[-98.1205361171735,19.407565368365212],[-98.12057653049602,19.407285100737056],[-98.12039015766454,19.407259796698128],[-98.12034717168858,19.407539633264406],[-98.1205361171735,19.407565368365212]]],"type":"Polygon"}},{"type":"Feature","properties":{"id":"E-14","name":"EDIFICIO N","tipo":"EDIFICIO","conexiones":["EE-14"]},"geometry":{"coordinates":[[[-98.12046726989836,19.407912335892576],[-98.12048105876858,19.40781218396772],[-98.1203383196717,19.40779477927194],[-98.1203246355744,19.407893365382606],[-98.12046726989836,19.407912335892576]]],"type":"Polygon"}},{"type":"Feature","properties":{"id":"E-24","name":"EDIFICIO X","tipo":"EDIFICIO","conexiones":["EE-24"]},"geometry":{"coordinates":[[[-98.1198482757427,19.408552067147383],[-98.119871332777,19.408341538953024],[-98.11949930856791,19.408285476165815],[-98.11946135129544,19.408507603215156],[-98.1198482757427,19.408552067147383]]],"type":"Polygon"}},{"type":"Feature","properties":{"id":"E-23","name":"EDIFICIO V","tipo":"EDIFICIO","conexiones":["EE-23"]},"geometry":{"coordinates":[[[-98.11928248655056,19.408536958406827],[-98.11933066021328,19.408206236930397],[-98.11904976874595,19.40816941710611],[-98.11900248433825,19.408499643206653],[-98.11928248655056,19.408536958406827]]],"type":"Polygon"}},{"type":"Feature","properties":{"id":"C-0","from":"EP-003","to":"CR-0","tipo":"CAMINO","distancia_metros":16},"geometry":{"coordinates":[[-98.12107448617152,19.40719130839912],[-98.12103240215711,19.407333972759474]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-1","from":"CR-0","to":"AP-003","tipo":"CAMINO","distancia_metros":32},"geometry":{"coordinates":[[-98.12103188806782,19.40733426617841],[-98.12072617713122,19.407289806044503]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-2","from":"AP-003","to":"CR-1","tipo":"CAMINO","distancia_metros":8},"geometry":{"coordinates":[[-98.12072547519921,19.40729127138674],[-98.12065033021086,19.40727886614046]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-3","from":"CR-1","to":"CR-2","tipo":"CAMINO","distancia_metros":35},"geometry":{"coordinates":[[-98.12064996835821,19.407280150872438],[-98.12032050712257,19.40722777362855]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-4","from":"CR-2","to":"CR-3","tipo":"CAMINO","distancia_metros":20},"geometry":{"coordinates":[[-98.12032124872552,19.407228273681156],[-98.12029172368457,19.40740670806491]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-5","from":"CR-3","to":"EE-12","tipo":"CAMINO","distancia_metros":8},"geometry":{"coordinates":[[-98.12029253192343,19.40740607241706],[-98.12036794501027,19.40740691736093]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-6","from":"CR-3","to":"CR-4","tipo":"CAMINO","distancia_metros":22},"geometry":{"coordinates":[[-98.12029203263216,19.40740588982777],[-98.12026730266899,19.407605153735418]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-7","from":"CR-4","to":"CR-5","tipo":"CAMINO","distancia_metros":18},"geometry":{"coordinates":[[-98.12026731317239,19.4076044273545],[-98.1204409275837,19.407630215524946]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-8","from":"CR-5","to":"EE-14","tipo":"CAMINO","distancia_metros":19},"geometry":{"coordinates":[[-98.12044055231891,19.40763014544271],[-98.12041326893473,19.407803388917273]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-9","from":"CR-5","to":"CR-6","tipo":"CAMINO","distancia_metros":15},"geometry":{"coordinates":[[-98.1204406420044,19.407630316943468],[-98.12057874491619,19.407640310290034]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-10","from":"CR-6","to":"CR-1","tipo":"CAMINO","distancia_metros":41},"geometry":{"coordinates":[[-98.12057979893974,19.407641055596144],[-98.12064894098704,19.40727855827457]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-11","from":"CR-4","to":"CR-7","tipo":"CAMINO","distancia_metros":11},"geometry":{"coordinates":[[-98.1202680903816,19.407604003929322],[-98.12016245225034,19.40758870246401]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-12","from":"CR-7","to":"CR-16","tipo":"CAMINO","distancia_metros":40},"geometry":{"coordinates":[[-98.12016198702833,19.407588593686086],[-98.11978625048164,19.40751188197531]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-13","from":"CR-7","to":"CR-8","tipo":"CAMINO","distancia_metros":46},"geometry":{"coordinates":[[-98.1201630094864,19.4075874928934],[-98.12010110065975,19.408000544119787]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-14","from":"CR-8","to":"CR-9","tipo":"CAMINO","distancia_metros":15},"geometry":{"coordinates":[[-98.12010303990031,19.407999880589102],[-98.11996449956531,19.407981082016263]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-15","from":"CR-9","to":"CR-10","tipo":"CAMINO","distancia_metros":7},"geometry":{"coordinates":[[-98.11996383922896,19.407981783684463],[-98.11989880566837,19.407979343675237]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-16","from":"CR-10","to":"CR-11","tipo":"CAMINO","distancia_metros":10},"geometry":{"coordinates":[[-98.11989892034786,19.407979389291413],[-98.11980674014895,19.407985563584518]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-17","from":"CR-11","to":"CR-12","tipo":"CAMINO","distancia_metros":17},"geometry":{"coordinates":[[-98.1198073066883,19.407985226063033],[-98.11965060470985,19.407957286843]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-18","from":"CR-12","to":"CR-13","tipo":"CAMINO","distancia_metros":12},"geometry":{"coordinates":[[-98.11965037208739,19.407957391992255],[-98.11971791587902,19.40787106622176]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-19","from":"CR-13","to":"CR-14","tipo":"CAMINO","distancia_metros":8},"geometry":{"coordinates":[[-98.11971738650502,19.407871827060262],[-98.11972323624428,19.40780261965179]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-20","from":"CR-14","to":"CR-15","tipo":"CAMINO","distancia_metros":22},"geometry":{"coordinates":[[-98.11972188093104,19.40780264435729],[-98.11976300819569,19.407608845071934]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-21","from":"CR-15","to":"CR-16","tipo":"CAMINO","distancia_metros":11},"geometry":{"coordinates":[[-98.11976272637172,19.407608763726273],[-98.11978587540506,19.407511711700977]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-22","from":"CR-12","to":"CR-17","tipo":"CAMINO","distancia_metros":4},"geometry":{"coordinates":[[-98.11964993493834,19.407957365877905],[-98.11960722160488,19.40795654198041]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-23","from":"CR-17","to":"CR-18","tipo":"CAMINO","distancia_metros":35},"geometry":{"coordinates":[[-98.11960746671458,19.407957374699336],[-98.11968848199407,19.408263404922764]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-24","from":"CR-18","to":"EE-24","tipo":"CAMINO","distancia_metros":6},"geometry":{"coordinates":[[-98.11968874548612,19.408263608161448],[-98.1197025849334,19.40831624214141]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-25","from":"CR-17","to":"CR-19","tipo":"CAMINO","distancia_metros":28},"geometry":{"coordinates":[[-98.1196071295053,19.407956613938623],[-98.1193390590264,19.407927692052795]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-26","from":"CR-19","to":"CR-20","tipo":"CAMINO","distancia_metros":25},"geometry":{"coordinates":[[-98.11933891581496,19.40792861134149],[-98.11931415946526,19.40815596496772]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-27","from":"CR-19","to":"CR-21","tipo":"CAMINO","distancia_metros":11},"geometry":{"coordinates":[[-98.11933899413901,19.407928241404136],[-98.11923473235997,19.407916846951522]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-28","from":"CR-21","to":"CR-22","tipo":"CAMINO","distancia_metros":26},"geometry":{"coordinates":[[-98.119234653388,19.407917216867816],[-98.1192089534541,19.408147166631167]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-29","from":"CR-20","to":"CR-22","tipo":"CAMINO","distancia_metros":11},"geometry":{"coordinates":[[-98.11931415946526,19.40815596496772],[-98.11920887402944,19.40814753934127]],"type":"LineString"}},{"type":"Feature","properties":{"id":"C-30","from":"CR-22","to":"EE-23","tipo":"CAMINO","distancia_metros":5},"geometry":{"coordinates":[[-98.11919342707999,19.408187007151824],[-98.11920849977858,19.40814728559583]],"type":"LineString"}}]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-0",
+        "name": "SO-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"EP-003\",\"AP-003\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12103179341126,
+          19.40733417308384
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-1",
+        "name": "SO-PRINCIPAL",
+        "tipo": "CRUCE",
+        "conexiones": "[\"AP-003\",\"CR-6\",\"CR-2\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12064946010476,
+          19.407280557322082
+        ],
+        "type": "Point"
+      },
+      "id": 1
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-2",
+        "name": "SO-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-1\",\"CR-3\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12032122191829,
+          19.407229535854796
+        ],
+        "type": "Point"
+      },
+      "id": 2
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-3",
+        "name": "C-ZOCALO",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-2\",\"EE-12\",\"CR-4\",\"CR-24\"]",
+        "edificio_asociado": "null"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12029188219229,
+          19.40740681376552
+        ],
+        "type": "Point"
+      },
+      "id": 3
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-4",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-3\",\"CR-5\",\"CR-7\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12026712679825,
+          19.407604845935126
+        ],
+        "type": "Point"
+      },
+      "id": 4
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-5",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-4\",\"EE-14\",\"CR-6\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12044041455579,
+          19.40763078899616
+        ],
+        "type": "Point"
+      },
+      "id": 5
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-6",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-1\",\"CR-5\",\"CR-71\",\"CR-15\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.1205788613889,
+          19.407641166218994
+        ],
+        "type": "Point"
+      },
+      "id": 6
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-7",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-4\",\"CR-8\",\"CR-16\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12016202945746,
+          19.407589554138596
+        ],
+        "type": "Point"
+      },
+      "id": 7
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-8",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-7\",\"CR-9\",\"EE-26\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12010203750849,
+          19.408001426138554
+        ],
+        "type": "Point"
+      },
+      "id": 8
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-9",
+        "name": "C-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-8\",\"CR-9\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11996355929818,
+          19.407983228255716
+        ],
+        "type": "Point"
+      },
+      "id": 9
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-10",
+        "name": "NO-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-9\",\"CR-11\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11989916890626,
+          19.40798089242901
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-11",
+        "name": "NO-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-10\",\"CR-12\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11980671090714,
+          19.407986342691203
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-12",
+        "name": "NE-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-11\",\"CR-13\",\"CR-17\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11964986251611,
+          19.407958312768272
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-13",
+        "name": "NE-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-12\",\"CR-14\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11971741980958,
+          19.40787214568485
+        ],
+        "type": "Point"
+      },
+      "id": 13
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-14",
+        "name": "SE-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-13\",\"CR-15\",\"EE-20\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11972144382945,
+          19.407803829132817
+        ],
+        "type": "Point"
+      },
+      "id": 14
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-15",
+        "name": "SE-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-14\",\"CR-16\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11976269003505,
+          19.407609316570728
+        ],
+        "type": "Point"
+      },
+      "id": 15
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-16",
+        "name": "SE-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-23\",\"CR-15\",\"CR-25\"]",
+        "edificio_asociado": "null"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11978582815058,
+          19.407513483466687
+        ],
+        "type": "Point"
+      },
+      "id": 16
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-17",
+        "name": "NE-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-12\",\"CR-18\",\"CR-19\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.1196069355878,
+          19.407957534159294
+        ],
+        "type": "Point"
+      },
+      "id": 17
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-18",
+        "name": "NE-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-17\",\"EE-25\",\"CR-58\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.1196886339374,
+          19.40826391657525
+        ],
+        "type": "Point"
+      },
+      "id": 18
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-19",
+        "name": "NE-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-17\",\"CR-20\",\"CR-21\",\"EE-20\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11933916373398,
+          19.407928128536483
+        ],
+        "type": "Point"
+      },
+      "id": 19
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-20",
+        "name": "NE-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-19\",\"CR-22\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11931401360852,
+          19.408156798929582
+        ],
+        "type": "Point"
+      },
+      "id": 20
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-21",
+        "name": "NE-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-19\",\"CR-110\"]",
+        "edificio_asociado": "null"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11923453921221,
+          19.40791769129075
+        ],
+        "type": "Point"
+      },
+      "id": 21
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-22",
+        "name": "NE-CRUCE",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-20\",\"CR-21\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11920838308244,
+          19.408148259377455
+        ],
+        "type": "Point"
+      },
+      "id": 22
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-23",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-16\",\"CR-7\",\"CR-24\"]",
+        "edificio_asociado": "null"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12001740404857,
+          19.407544876318326
+        ],
+        "type": "Point"
+      },
+      "id": 23
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-25",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-24\",\"CR-26\",\"CR-16\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.1198071846117,
+          19.4073303192783
+        ],
+        "type": "Point"
+      },
+      "id": 24
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-26",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-25\",\"CR-27\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11981775594211,
+          19.40724155382405
+        ],
+        "type": "Point"
+      },
+      "id": 25
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-27",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-26\",\"EE-19\",\"CR-28\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11967491364427,
+          19.407226222588918
+        ],
+        "type": "Point"
+      },
+      "id": 26
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-28",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-27\",\"CR-29\",\"CR-33\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11949555589432,
+          19.407206927263772
+        ],
+        "type": "Point"
+      },
+      "id": 27
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-29",
+        "name": "C-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-28\",\"CR-30\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11945135997097,
+          19.407556652162015
+        ],
+        "type": "Point"
+      },
+      "id": 28
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-30",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-29\",\"CR-32\",\"CR-31\",\"EE-20\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11940609802456,
+          19.40761120089755
+        ],
+        "type": "Point"
+      },
+      "id": 29
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-31",
+        "name": "C-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-34\",\"CR-30\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11880630356801,
+          19.407522182040097
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-32",
+        "name": "C-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-33\",\"CR-30\",\"CR-36\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11914908984278,
+          19.407123791898286
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-33",
+        "name": "C-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-28\",\"CR-32\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11951990454894,
+          19.407172648826986
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-34",
+        "name": "E-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-35\",\"CR-38\",\"CR-31\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11885558843481,
+          19.407244852445714
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-35",
+        "name": "E-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-36\",\"CR-34\",\"CR-37\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11887268732366,
+          19.407093380437203
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-36",
+        "name": "E-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-32\",\"EE-18\",\"CR-35\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.1190288358215,
+          19.407110101879894
+        ],
+        "type": "Point"
+      },
+      "id": 35
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-37",
+        "name": "E-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-35\",\"CR-38\",\"EE-21\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11876115303609,
+          19.407076459182377
+        ],
+        "type": "Point"
+      },
+      "id": 36
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-38",
+        "name": "E-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-37\",\"CR-34\",\"CR-45\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11873617537155,
+          19.40722350418862
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-39",
+        "name": "E-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"EE-21\",\"CR-40\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11881776766668,
+          19.40665147225083
+        ],
+        "type": "Point"
+      },
+      "id": 38
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-40",
+        "name": "SE-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"EE-27\",\"CR-41\",\"CR-39\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11848335568794,
+          19.40662115656579
+        ],
+        "type": "Point"
+      },
+      "id": 39
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-41",
+        "name": "SE-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-40\",\"CR-42\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11850113634664,
+          19.406472802626197
+        ],
+        "type": "Point"
+      },
+      "id": 40
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-42",
+        "name": "SE-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-41\",\"CR-43\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11823016400415,
+          19.406447752224324
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-43",
+        "name": "SE-CURVA",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-42\",\"CR-44\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11816056897105,
+          19.406900448232534
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-44",
+        "name": "SE-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"EE-27\",\"CR-43\",\"CR-45\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11843548531296,
+          19.406930118952744
+        ],
+        "type": "Point"
+      },
+      "id": 43
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-45",
+        "name": "SE-SUPERIOR",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-38\",\"CR-44\",\"AP-004\"]",
+        "edificio_asociado": null
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11839650442778,
+          19.407173934353267
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-0",
+        "from": "EP-003",
+        "to": "CR-0",
+        "tipo": "CAMINO",
+        "distancia_metros": 16
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12107448617152,
+            19.40719130839912
+          ],
+          [
+            -98.12103240215711,
+            19.407333972759474
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-1",
+        "from": "CR-0",
+        "to": "AP-003",
+        "tipo": "CAMINO",
+        "distancia_metros": 32
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12103188806782,
+            19.40733426617841
+          ],
+          [
+            -98.12072617713122,
+            19.407289806044503
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": 100
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-2",
+        "from": "AP-003",
+        "to": "CR-1",
+        "tipo": "CAMINO",
+        "distancia_metros": 8
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12072547519921,
+            19.40729127138674
+          ],
+          [
+            -98.12065033021086,
+            19.40727886614046
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": 101
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-3",
+        "from": "CR-1",
+        "to": "CR-2",
+        "tipo": "CAMINO",
+        "distancia_metros": 35
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12064996835821,
+            19.407280150872438
+          ],
+          [
+            -98.12032050712257,
+            19.40722777362855
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-7",
+        "from": "CR-4",
+        "to": "CR-5",
+        "tipo": "CAMINO",
+        "distancia_metros": 18
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12026731317239,
+            19.4076044273545
+          ],
+          [
+            -98.1204409275837,
+            19.407630215524946
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-8",
+        "from": "CR-5",
+        "to": "EE-14",
+        "tipo": "CAMINO",
+        "distancia_metros": 19
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12044055231891,
+            19.40763014544271
+          ],
+          [
+            -98.12041326893473,
+            19.407803388917273
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-9",
+        "from": "CR-5",
+        "to": "CR-6",
+        "tipo": "CAMINO",
+        "distancia_metros": 15
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1204406420044,
+            19.407630316943468
+          ],
+          [
+            -98.12057874491619,
+            19.407640310290034
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-11",
+        "from": "CR-4",
+        "to": "CR-7",
+        "tipo": "CAMINO",
+        "distancia_metros": 11
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1202680903816,
+            19.407604003929322
+          ],
+          [
+            -98.12016245225034,
+            19.40758870246401
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-13",
+        "from": "CR-7",
+        "to": "CR-8",
+        "tipo": "CAMINO",
+        "distancia_metros": 46
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1201630094864,
+            19.4075874928934
+          ],
+          [
+            -98.12010110065975,
+            19.408000544119787
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": 111
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-14",
+        "from": "CR-8",
+        "to": "CR-9",
+        "tipo": "CAMINO",
+        "distancia_metros": 15
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12010303990031,
+            19.407999880589102
+          ],
+          [
+            -98.11996449956531,
+            19.407981082016263
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-15",
+        "from": "CR-9",
+        "to": "CR-10",
+        "tipo": "CAMINO",
+        "distancia_metros": 7
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11996383922896,
+            19.407981783684463
+          ],
+          [
+            -98.11989880566837,
+            19.407979343675237
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-16",
+        "from": "CR-10",
+        "to": "CR-11",
+        "tipo": "CAMINO",
+        "distancia_metros": 10
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11989892034786,
+            19.407979389291413
+          ],
+          [
+            -98.11980674014895,
+            19.407985563584518
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-17",
+        "from": "CR-11",
+        "to": "CR-12",
+        "tipo": "CAMINO",
+        "distancia_metros": 17
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1198073066883,
+            19.407985226063033
+          ],
+          [
+            -98.11965060470985,
+            19.407957286843
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-18",
+        "from": "CR-12",
+        "to": "CR-13",
+        "tipo": "CAMINO",
+        "distancia_metros": 12
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11965037208739,
+            19.407957391992255
+          ],
+          [
+            -98.11971791587902,
+            19.40787106622176
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-22",
+        "from": "CR-12",
+        "to": "CR-17",
+        "tipo": "CAMINO",
+        "distancia_metros": 4
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11964993493834,
+            19.407957365877905
+          ],
+          [
+            -98.11960722160488,
+            19.40795654198041
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-23",
+        "from": "CR-17",
+        "to": "CR-18",
+        "tipo": "CAMINO",
+        "distancia_metros": 35
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11960746671458,
+            19.407957374699336
+          ],
+          [
+            -98.11968848199407,
+            19.408263404922764
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-24",
+        "from": "CR-18",
+        "to": "EE-24",
+        "tipo": "CAMINO",
+        "distancia_metros": 6
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11968874548612,
+            19.408263608161448
+          ],
+          [
+            -98.1197025849334,
+            19.40831624214141
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-25",
+        "from": "CR-17",
+        "to": "CR-19",
+        "tipo": "CAMINO",
+        "distancia_metros": 28
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1196071295053,
+            19.407956613938623
+          ],
+          [
+            -98.1193390590264,
+            19.407927692052795
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-26",
+        "from": "CR-19",
+        "to": "CR-20",
+        "tipo": "CAMINO",
+        "distancia_metros": 25
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11933891581496,
+            19.40792861134149
+          ],
+          [
+            -98.11931415946526,
+            19.40815596496772
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-27",
+        "from": "CR-19",
+        "to": "CR-21",
+        "tipo": "CAMINO",
+        "distancia_metros": 11
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11933899413901,
+            19.407928241404136
+          ],
+          [
+            -98.11923473235997,
+            19.407916846951522
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-29",
+        "from": "CR-20",
+        "to": "CR-22",
+        "tipo": "CAMINO",
+        "distancia_metros": 11
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11931415946526,
+            19.40815596496772
+          ],
+          [
+            -98.11920887402944,
+            19.40814753934127
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-36",
+        "from": "CR-26",
+        "to": "CR-27",
+        "tipo": "CAMINO",
+        "distancia_metros": 15
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11981770146004,
+            19.40724192143435
+          ],
+          [
+            -98.11967470619162,
+            19.40722658447433
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-38",
+        "from": "CR-27",
+        "to": "CR-28",
+        "tipo": "CAMINO",
+        "distancia_metros": 19
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11967472137589,
+            19.407226328394543
+          ],
+          [
+            -98.11949551650973,
+            19.407207196797472
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-39",
+        "from": "CR-28",
+        "to": "CR-33",
+        "tipo": "CAMINO",
+        "distancia_metros": 5
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11949557369637,
+            19.407207060118367
+          ],
+          [
+            -98.1195198812154,
+            19.407172749591
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-40",
+        "from": "CR-33",
+        "to": "CR-32",
+        "tipo": "CAMINO",
+        "distancia_metros": 39
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1195198813037,
+            19.407172591501464
+          ],
+          [
+            -98.11914906640457,
+            19.407124050784162
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-41",
+        "from": "CR-32",
+        "to": "CR-36",
+        "tipo": "CAMINO",
+        "distancia_metros": 13
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11914940218792,
+            19.40712405073576
+          ],
+          [
+            -98.1190287027823,
+            19.407110453009324
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-43",
+        "from": "CR-36",
+        "to": "CR-35",
+        "tipo": "CAMINO",
+        "distancia_metros": 17
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11902903828086,
+            19.40711029527661
+          ],
+          [
+            -98.11887263196773,
+            19.4070936934
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-44",
+        "from": "CR-35",
+        "to": "CR-37",
+        "tipo": "CAMINO",
+        "distancia_metros": 12
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11887263233346,
+            19.40709353536093
+          ],
+          [
+            -98.11876115302128,
+            19.407076775368637
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-45",
+        "from": "CR-37",
+        "to": "CR-38",
+        "tipo": "CAMINO",
+        "distancia_metros": 17
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11876114084592,
+            19.407076779854805
+          ],
+          [
+            -98.11873616281419,
+            19.407223824998965
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-46",
+        "from": "CR-38",
+        "to": "CR-34",
+        "tipo": "CAMINO",
+        "distancia_metros": 13
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11873633040625,
+            19.407223508745986
+          ],
+          [
+            -98.11885585634577,
+            19.40724501211153
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-47",
+        "from": "CR-34",
+        "to": "CR-35",
+        "tipo": "CAMINO",
+        "distancia_metros": 17
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11885568855354,
+            19.40724517031626
+          ],
+          [
+            -98.11887262004184,
+            19.407093698049366
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-48",
+        "from": "CR-34",
+        "to": "CR-31",
+        "tipo": "CAMINO",
+        "distancia_metros": 31
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11885568863791,
+            19.407245011995343
+          ],
+          [
+            -98.11880657080702,
+            19.407522341659515
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-49",
+        "from": "CR-31",
+        "to": "CR-30",
+        "tipo": "CAMINO",
+        "distancia_metros": 64
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1188062355311,
+            19.407522341659515
+          ],
+          [
+            -98.11940621226182,
+            19.40761135884877
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-50",
+        "from": "CR-30",
+        "to": "CR-32",
+        "tipo": "CAMINO",
+        "distancia_metros": 61
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1194062122334,
+            19.407611358851398
+          ],
+          [
+            -98.11914905608336,
+            19.407123739574303
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": 80
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-51",
+        "from": "CR-28",
+        "to": "CR-29",
+        "tipo": "CAMINO",
+        "distancia_metros": 39
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11949573035456,
+            19.407207065028572
+          ],
+          [
+            -98.11945130609963,
+            19.407556652321944
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-52",
+        "from": "CR-29",
+        "to": "CR-30",
+        "tipo": "CAMINO",
+        "distancia_metros": 8
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11945130597744,
+            19.407556968680368
+          ],
+          [
+            -98.11940604369994,
+            19.40761167565681
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-53",
+        "from": "CR-30",
+        "to": "EE-15",
+        "tipo": "CAMINO",
+        "distancia_metros": 18
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11940604340256,
+            19.407611518016992
+          ],
+          [
+            -98.11937938905066,
+            19.407768365626183
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-55",
+        "from": "EE-15",
+        "to": "CR-19",
+        "tipo": "CAMINO",
+        "distancia_metros": 18
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11937955653201,
+            19.407768207842864
+          ],
+          [
+            -98.1193391558717,
+            19.40792853367448
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-56",
+        "from": "CR-37",
+        "to": "EE-17",
+        "tipo": "CAMINO",
+        "distancia_metros": 23
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.118761239972,
+            19.407076568084236
+          ],
+          [
+            -98.1187890678288,
+            19.40687449961672
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-57",
+        "from": "EE-15",
+        "to": "CR-39",
+        "tipo": "CAMINO",
+        "distancia_metros": 25
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11878906799133,
+            19.40687449989207
+          ],
+          [
+            -98.11881773393857,
+            19.406651402056838
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-58",
+        "from": "CR-39",
+        "to": "CR-40",
+        "tipo": "CAMINO",
+        "distancia_metros": 35
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11881790245893,
+            19.40665140219963
+          ],
+          [
+            -98.11848346453644,
+            19.406621360833157
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-59",
+        "from": "CR-40",
+        "to": "CR-41",
+        "tipo": "CAMINO",
+        "distancia_metros": 17
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11848329688954,
+            19.406621202716465
+          ],
+          [
+            -98.11850106670667,
+            19.406472734038232
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-60",
+        "from": "CR-41",
+        "to": "CR-42",
+        "tipo": "CAMINO",
+        "distancia_metros": 29
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11850123471788,
+            19.406472734187872
+          ],
+          [
+            -98.1182301638285,
+            19.406447752172014
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-61",
+        "from": "CR-42",
+        "to": "CR-43",
+        "tipo": "CAMINO",
+        "distancia_metros": 51
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11823033146699,
+            19.406447752172014
+          ],
+          [
+            -98.11816076206844,
+            19.40690027296266
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-62",
+        "from": "CR-43",
+        "to": "CR-44",
+        "tipo": "CAMINO",
+        "distancia_metros": 29
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11816059443007,
+            19.40690043106619
+          ],
+          [
+            -98.1184356882757,
+            19.406930314477364
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-63",
+        "from": "CR-44",
+        "to": "EE-18",
+        "tipo": "CAMINO",
+        "distancia_metros": 24
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11843585591417,
+            19.406930314477364
+          ],
+          [
+            -98.11846787466143,
+            19.40672049815217
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-64",
+        "from": "EE-18",
+        "to": "CR-40",
+        "tipo": "CAMINO",
+        "distancia_metros": 11
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11846770709066,
+            19.40672049829226
+          ],
+          [
+            -98.11848329740033,
+            19.406621361154336
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-65",
+        "from": "CR-38",
+        "to": "CR-45",
+        "tipo": "CAMINO",
+        "distancia_metros": 36
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11873626253796,
+            19.407223455892932
+          ],
+          [
+            -98.11839645990591,
+            19.40717396615915
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-66",
+        "from": "CR-45",
+        "to": "CR-44",
+        "tipo": "CAMINO",
+        "distancia_metros": 27
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11839662795569,
+            19.407174124264657
+          ],
+          [
+            -98.11843568779852,
+            19.406930471804955
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": 193
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-67",
+        "from": "CR-45",
+        "to": "AP-004",
+        "tipo": "CAMINO",
+        "distancia_metros": 22
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11839670012422,
+            19.40717391226339
+          ],
+          [
+            -98.11819033757948,
+            19.407141340922365
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-109",
+        "name": "SO-CRUCE CURVA-L",
+        "tipo": "CRUCE CURVA",
+        "conexiones": "[\"CR-1\",\"CR-6\"]",
+        "edificio_asociado": "null"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12063220290284,
+          19.407423808074455
+        ],
+        "type": "Point"
+      },
+      "id": 97
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-68",
+        "from": "CR-1",
+        "to": "CR-109",
+        "tipo": "CAMINO",
+        "distancia_metros": 16
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12064942720494,
+            19.407280409582953
+          ],
+          [
+            -98.12063239693143,
+            19.407423609630783
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-69",
+        "from": "CR-109",
+        "to": "CR-6",
+        "tipo": "CAMINO",
+        "distancia_metros": 25
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12063229337409,
+            19.407423886514565
+          ],
+          [
+            -98.12057884219728,
+            19.40764132128038
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-70",
+        "from": "CR-2",
+        "to": "CR-3",
+        "tipo": "CAMINO",
+        "distancia_metros": 20
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12032110754132,
+            19.407229490111845
+          ],
+          [
+            -98.120291828479,
+            19.407406892336695
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-71",
+        "from": "CR-3",
+        "to": "CR-4",
+        "tipo": "CAMINO",
+        "distancia_metros": 22
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12026718795663,
+            19.407605047944244
+          ],
+          [
+            -98.1202919100506,
+            19.407406814704444
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-24",
+        "name": "C-Superior",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-3\",\"CR-23\",\"CR-25\"]",
+        "edificio_asociado": "null"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12002920879748,
+          19.407365912585007
+        ],
+        "type": "Point"
+      },
+      "id": 100
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-72",
+        "from": "CR-3",
+        "to": "CR-24",
+        "tipo": "CAMINO",
+        "distancia_metros": 28
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12029188695713,
+            19.407406841397105
+          ],
+          [
+            -98.1200293187221,
+            19.40736589032157
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-73",
+        "from": "CR-24",
+        "to": "CR-25",
+        "tipo": "CAMINO",
+        "distancia_metros": 24
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12002935455534,
+            19.407365988604212
+          ],
+          [
+            -98.11980743206438,
+            19.407330435436265
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-74",
+        "from": "CR-24",
+        "to": "CR-23",
+        "tipo": "CAMINO",
+        "distancia_metros": 20
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12002923924032,
+            19.407366073695854
+          ],
+          [
+            -98.1200173787155,
+            19.407544799553804
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-75",
+        "from": "CR-7",
+        "to": "CR-23",
+        "tipo": "CAMINO",
+        "distancia_metros": 16
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12016181846624,
+            19.40758967150552
+          ],
+          [
+            -98.12001747066896,
+            19.407545068100006
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-76",
+        "from": "CR-23",
+        "to": "CR-16",
+        "tipo": "CAMINO",
+        "distancia_metros": 25
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12001755776556,
+            19.407544975886225
+          ],
+          [
+            -98.11978605174552,
+            19.407513455490346
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-77",
+        "from": "CR-16",
+        "to": "CR-25",
+        "tipo": "CAMINO",
+        "distancia_metros": 21
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11978598715166,
+            19.407513801935394
+          ],
+          [
+            -98.11980723954134,
+            19.407330432690614
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-78",
+        "from": "CR-16",
+        "to": "CR-15",
+        "tipo": "CAMINO",
+        "distancia_metros": 11
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11978597362541,
+            19.407513987335832
+          ],
+          [
+            -98.11976266207341,
+            19.407609543209077
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-79",
+        "from": "CR-15",
+        "to": "CR-14",
+        "tipo": "CAMINO",
+        "distancia_metros": 22
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11976282100954,
+            19.407609475957273
+          ],
+          [
+            -98.11972131467185,
+            19.407804168540906
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": 109
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-80",
+        "from": "CR-14",
+        "to": "CR-13",
+        "tipo": "CAMINO",
+        "distancia_metros": 8
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11972139805391,
+            19.407804038312335
+          ],
+          [
+            -98.11971720710214,
+            19.407872342869453
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-110",
+        "name": "NE-CRUCE V",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-22\",\"CR-111\"]",
+        "edificio_asociado": "null"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.11921660701132,
+          19.408051970921917
+        ],
+        "type": "Point"
+      },
+      "id": 110
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-111",
+        "name": "NE-CRUCE-V",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-41\",\"CR-43\"]",
+        "edificio_asociado": "null"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.1191489351656,
+          19.408046751914867
+        ],
+        "type": "Point"
+      },
+      "id": 111
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-81",
+        "from": "CR-21",
+        "to": "CR-110",
+        "tipo": "CAMINO",
+        "distancia_metros": 15
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11923431235653,
+            19.407917915363953
+          ],
+          [
+            -98.11921678096893,
+            19.408052341942522
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-82",
+        "from": "CR-110",
+        "to": "CR-111",
+        "tipo": "CAMINO",
+        "distancia_metros": 7
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1192167416823,
+            19.408051945068863
+          ],
+          [
+            -98.11914901590472,
+            19.408046727366923
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-83",
+        "from": "CR-110",
+        "to": "CR-22",
+        "tipo": "CAMINO",
+        "distancia_metros": 8
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11921683538989,
+            19.408052090045572
+          ],
+          [
+            -98.119208425479,
+            19.40814823847161
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-84",
+        "from": "CR-25",
+        "to": "CR-26",
+        "tipo": "CAMINO",
+        "distancia_metros": 10
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.1198072430664,
+            19.407330712867193
+          ],
+          [
+            -98.11981777692701,
+            19.407241956518874
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR-47",
+        "name": "O-CRUCE SUPERIOR-O",
+        "tipo": "CRUCE",
+        "conexiones": "[\"CR-41\",\"CR-43\"]",
+        "edificio_asociado": "null"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.12044862584409,
+          19.40804244953911
+        ],
+        "type": "Point"
+      },
+      "id": 116
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-85",
+        "from": "CR-8",
+        "to": "CR-47",
+        "tipo": "CAMINO",
+        "distancia_metros": 37
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.12010197542075,
+            19.408001466724997
+          ],
+          [
+            -98.12044868121184,
+            19.408042310485115
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": 117
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "C-86",
+        "from": "CR-15",
+        "to": "CR-29",
+        "tipo": "CAMINO",
+        "distancia_metros": 33
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -98.11976277826393,
+            19.407609307661815
+          ],
+          [
+            -98.11945115193376,
+            19.407557095693875
+          ]
+        ],
+        "type": "LineString"
+      }
+    }
+  ]
+}
